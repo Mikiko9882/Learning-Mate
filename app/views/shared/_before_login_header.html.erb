@@ -1,0 +1,15 @@
+<header class="header navbar navbar-expand-lg bg-light shadow-sm fixed-top">
+  <div class="container px-0">
+    <a href="index.html" class="navbar-brand pe-3">
+      <%= link_to root_path, class: "navbar-brand pe-3" do %>
+        Learning Mate
+      <% end %>
+    </a>
+    <div id="navbarNav" class="offcanvas offcanvas-end">
+      <div class="offcanvas-header border-top">
+        <%= link_to (t 'defaults.login') ,login_path, class: 'btn btn-primary btn-sm fs-sm rounded d-none d-lg-inline-flex' %>
+      </div>      
+    </div>
+    <%= link_to (t 'defaults.login'), login_path, class: 'btn btn-primary btn-sm fs-sm rounded d-none d-lg-inline-flex' %>
+  </div>
+</header>
