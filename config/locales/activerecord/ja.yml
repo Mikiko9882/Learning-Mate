@@ -3,6 +3,8 @@ ja:
     models:
       user: 'ユーザー'
       test_result: 'テスト結果'
+      grade: '学年'
+      user_class: 'クラス' 
     attributes:
       user:
         email: 'メールアドレス'
@@ -19,6 +21,8 @@ ja:
         avatar: 'アバター'
         role: '権限'
         created_at: '作成日時'
+        grade_id: '学年'
+        user_class_id: 'クラス'
       test_result:
         test_name: "テスト名"
         score: "得点"
@@ -31,6 +35,10 @@ ja:
         test_type: "教科名"
         preparation_time_minutes: "学習時間" 
         display_preparation_time: "学習時間"
+      grade: 
+        grade_id: '学年'
+      user_class:
+        user_class_id: 'クラス' 
     enums:
       user:
         role:

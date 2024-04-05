@@ -42,7 +42,7 @@
           <div class="position-relative mb-4">
             <div class="form-group">
               <%= f.label :grade_id %>
-              <%= f.collection_select :grade_id, Grade.all, :id, :name %>
+              <%= f.collection_select :grade_id, Grade.all, :id, :name, {}, {class: "form-control custom-select-lg"} %>
             </div>
           </div>
         </div>
@@ -50,7 +50,7 @@
           <div class="position-relative mb-4">
             <div class="form-group">
               <%= f.label :user_class_id %>
-              <%= f.collection_select :user_class_id, UserClass.all, :id, :name %>
+              <%= f.collection_select :user_class_id, UserClass.all, :id, :name, {}, {class: "form-control custom-select-lg"} %>
             </div>
           </div>
         </div>
