@@ -9,12 +9,12 @@
     </a>
     <div id="navbarNav" class="offcanvas offcanvas-end">
       <div class="offcanvas-header border-top">
-        <%= link_to (t 'defaults.logout'), '#', class: 'btn btn-primary btn-sm fs-sm rounded d-none d-lg-inline-flex', data: {turbo_method: :delete} %>
+        <%= link_to (t 'defaults.logout'), user_session_path, class: 'btn btn-primary btn-sm fs-sm rounded d-none d-lg-inline-flex', data: {turbo_method: :delete} %>
       </div>      
     </div>
 
     <div class="form-check from-switch mode-switch pe-lg-1 ms-auto me-0" data-bs-toggle="mode">
-      <%= link_to (t 'defaults.logout'), '#', class: 'btn btn-primary btn-sm fs-sm rounded d-none d-lg-inline-flex', data: {turbo_method: :delete} %>
+      <%= link_to (t 'defaults.logout'), user_session_path, class: 'btn btn-primary btn-sm fs-sm rounded d-none d-lg-inline-flex', data: {turbo_method: :delete} %>
     </div>
   </div>
 </header>

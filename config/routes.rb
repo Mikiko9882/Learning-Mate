@@ -7,5 +7,8 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root 'tops#index'
+
+  resource :user_session, only: [:new, :create, :destroy]
+  resources :users, only: %i[new create]
   
 end
