@@ -20,6 +20,22 @@ class TestResultsController < ApplicationController
   def show 
   end
 
+  def edit; end
+
+  def update
+    if @test_result.update(test_result_params)
+      redirect_to test_results_path, success: t('defaults.message.updated', item: TestResult.model_name.human)
+    else
+      flash.now['danger'] = t('defaults.message.not_updated', item: TestResult.model_name.human)
+      render :edit
+    end
+  end
+
+  def destroy
+    @test_result.destroy!
+    redirect_to test_results_path, success: t('defaults.message.deleted', item: TestResult.model_name.human)
+  end
+  
   private
 
   def test_result_params
