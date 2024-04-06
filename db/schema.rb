@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_06_042036) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_06_081927) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -20,36 +20,37 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_06_042036) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "subjects", force: :cascade do |t|
-    t.bigint "test_result_id", null: false
-    t.string "subject_name", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["test_result_id"], name: "index_subjects_on_test_result_id"
-  end
-
-  create_table "test_infos", force: :cascade do |t|
-    t.string "test_name", null: false
+  create_table "max_scores", force: :cascade do |t|
     t.integer "max_score", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "test_results", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "test_info_id", null: false
-    t.integer "score", null: false
+  create_table "subjects", force: :cascade do |t|
+    t.string "subject_name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["test_info_id"], name: "index_test_results_on_test_info_id"
-    t.index ["user_id"], name: "index_test_results_on_user_id"
   end
 
-  create_table "test_settings", force: :cascade do |t|
-    t.string "test_name"
-    t.integer "max_score"
+  create_table "test_names", force: :cascade do |t|
+    t.string "test_name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "test_results", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "test_name_id"
+    t.bigint "subject_id"
+    t.bigint "max_score_id"
+    t.integer "score", null: false
+    t.integer "preparation_time_minutes", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["max_score_id"], name: "index_test_results_on_max_score_id"
+    t.index ["subject_id"], name: "index_test_results_on_subject_id"
+    t.index ["test_name_id"], name: "index_test_results_on_test_name_id"
+    t.index ["user_id"], name: "index_test_results_on_user_id"
   end
 
   create_table "user_classes", force: :cascade do |t|
@@ -74,8 +75,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_06_042036) do
     t.index ["user_class_id"], name: "index_users_on_user_class_id"
   end
 
-  add_foreign_key "subjects", "test_results"
-  add_foreign_key "test_results", "test_infos"
+  add_foreign_key "test_results", "max_scores"
+  add_foreign_key "test_results", "subjects"
+  add_foreign_key "test_results", "test_names"
   add_foreign_key "test_results", "users"
   add_foreign_key "users", "grades"
   add_foreign_key "users", "user_classes"

@@ -1,2 +1,0 @@
-class TestSetting < ApplicationRecord
-end

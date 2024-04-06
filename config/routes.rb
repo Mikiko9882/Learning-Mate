@@ -11,6 +11,6 @@ Rails.application.routes.draw do
   resource :user_session, only: [:new, :create, :destroy]
   resources :users, only: %i[new create]
 
-  resources :test_results, only: %i[index]
+  resources :test_results, only: %i[index new create]
   
 end

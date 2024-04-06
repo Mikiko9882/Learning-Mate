@@ -1,3 +1,3 @@
-class Subject < ApplicationRecord
+class TestName < ApplicationRecord
   has_many :test_results, dependent: :restrict_with_exception
 end
