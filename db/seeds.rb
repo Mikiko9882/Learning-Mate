@@ -31,3 +31,5 @@ UserClass.find_or_create_by!(name: "G組")
 UserClass.find_or_create_by!(name: "H組")
 UserClass.find_or_create_by!(name: "I組")
 UserClass.find_or_create_by!(name: "J組")
+
+
