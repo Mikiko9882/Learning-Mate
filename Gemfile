@@ -57,6 +57,9 @@ gem 'draper'
 #ページネーション
 gem 'kaminari'
 
+#検索機能を実装
+gem 'ransack'
+
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

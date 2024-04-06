@@ -1,6 +1,7 @@
 class TestResultsController < ApplicationController
   def index
-    @test_results = current_user.test_results.includes(:user).order(created_at: :desc).page(params[:page])
+    @q = current_user.test_results.ransack(params[:q])
+    @test_results = @q.result(distinct: true).includes(:user).order(created_at: :desc).page(params[:page])
   end
 
   def new
