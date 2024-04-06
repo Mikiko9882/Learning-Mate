@@ -1,0 +1,44 @@
+<div class="container d-flex flex-wrap justify-content-center justify-content-center pt-5">
+  <div class="w-100 align-self-end pt-1 pt-md-4 pb-4" style="max-width: 526px;">
+    <h1 class="text-center text-xl-start"><%= t '.title' %></h1>
+    <div class="text-center">
+      <div class="d-table position-relative mx-auto mt-2 mt-lg-4 pt-5 mb-3">
+        <%= image_tag 'sample.jpg', size: '40x40', class: 'rounded-circle mr15'%>
+      </div>
+      <h2 class="h5 mb-1"><%= @user.decorate.full_name %></h2>
+      <p class="mb-3 pb-3"><%= @user.email %></p>
+    </div>
+    <div class="row">
+      <table class="table">
+        <tbody>
+          <tr>
+            <th scope="row"><%= t(User.human_attribute_name(:nickname)) %></th>
+            <td><%= @user.nickname %></td>
+          </tr>
+          <tr>
+            <th scope="row"><%= t(User.human_attribute_name(:grade_and_class)) %></th>
+            <td><%= @user.grade_and_class %></td>
+          </tr>
+          <tr>
+            <th scope="row"><%= '達成率の平均値'%></th>
+            <td><span class="fs-lg fw-semibold text-danger me-2"> </span><span class="fs-lg fw-semibold text-danger me-2"><%= @average_achievement_rate.present? ? number_to_percentage(@average_achievement_rate, precision: 0) : 'N/A' %></span></td>
+          <tr>
+          <tr>
+            <th scope="row"><%= 'みんなに一言' %></th>
+            <td><%= @user.introduction %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="w-100 align-self-end pt-1 pt-md-4 pb-4" style="max-width: 1000px;">
+    <div class="row">
+      <div class="col-md-6">
+        <%= line_chart @test_results_data, xtitle: 'テスト名', ytitle: '達成率', height: '400px' %>
+      </div>
+      <div class="col-md-6">
+        <%= scatter_chart @test_results_data2, xtitle: '学習時間（分）', ytitle: '点数', height: '400px' %>
+      </div>
+    </div>
+  </div>
+</div>
