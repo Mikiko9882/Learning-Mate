@@ -23,8 +23,8 @@
             <div class="card-body pb-4">
               <div class="d-flex align-items-center justify-content-between mb-3">
                 <div class="d-flex gap-2">
-                  <%= button_to "Edit", edit_test_result_path(test_result), class: "badge fs-sm text-nav bg-secondary text-decoration-none" %>
-                  <%= button_to "Destroy", test_result_path(test_result), method: :delete, data: { turbo_confirm: "本当に削除しますか？" }, class: "badge fs-sm text-nav bg-secondary text-decoration-none" %>
+                  <%= link_to "Edit", edit_test_result_path(test_result), class: "badge fs-sm text-nav bg-secondary text-decoration-none" %>
+                  <%= button_to "Destroy", test_result_path(test_result), method: :delete, data: { turbo_confirm: "本当に削除しますか？" }, class: "bi bi-trash3" %>
                 </div>
                 <li class="list-inline-item">
                   <%= l test_result.created_at, format: :long %>
