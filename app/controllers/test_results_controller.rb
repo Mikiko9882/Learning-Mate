@@ -1,6 +1,6 @@
 class TestResultsController < ApplicationController
   def index
-    @test_results = TestResult.all.includes(:user).order(created_at: :desc)
+    @test_results = current_user.test_results.includes(:user).order(created_at: :desc)
   end
 
   def new
