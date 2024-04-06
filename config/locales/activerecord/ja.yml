@@ -35,6 +35,10 @@ ja:
         test_type: "教科名"
         preparation_time_minutes: "学習時間" 
         display_preparation_time: "学習時間"
+        test_name_id: "テスト名"
+        max_score_id: "満点"
+        subject_id: "教科"
+        
       grade: 
         grade_id: '学年'
       user_class:
