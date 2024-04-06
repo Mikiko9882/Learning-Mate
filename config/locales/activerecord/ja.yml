@@ -24,6 +24,7 @@ ja:
         grade_id: '学年'
         user_class_id: 'クラス'
       test_result:
+        title: 'テスト結果'
         test_name: "テスト名"
         score: "得点"
         max_score: "満点"
