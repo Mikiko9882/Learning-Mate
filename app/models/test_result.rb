@@ -24,6 +24,12 @@ class TestResult < ApplicationRecord
       .pluck(:test_name, :achievement_rate)
   end
 
+  def self.scatter_chart_data_by_subject(subject)
+    joins(:subject)
+      .where(subjects: { subject_name: subject })
+      .pluck(:preparation_time_minutes, :achievement_rate)
+  end
+
   private
 
   def calculate_achievement_rate
