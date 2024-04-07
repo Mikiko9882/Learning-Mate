@@ -18,6 +18,18 @@ class TestResult < ApplicationRecord
     ["achievement_rate", "created_at", "id", "id_value", "max_score_id", "preparation_time_minutes", "score", "subject_id", "test_name_id", "updated_at", "user_id"]
   end
 
+  def self.achievement_rate_by_subject(subject)
+    joins(:subject, :test_name)
+      .where(subjects: { subject_name: subject })
+      .pluck(:test_name, :achievement_rate)
+  end
+
+  def self.scatter_chart_data_by_subject(subject)
+    joins(:subject)
+      .where(subjects: { subject_name: subject })
+      .pluck(:preparation_time_minutes, :achievement_rate)
+  end
+
   private
 
   def calculate_achievement_rate
