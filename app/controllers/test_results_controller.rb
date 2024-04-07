@@ -41,6 +41,12 @@ class TestResultsController < ApplicationController
     redirect_to test_results_path, success: t('defaults.message.deleted', item: TestResult.model_name.human)
   end
 
+  def subject_achievement_rate
+    subject_name = params[:subject_name]
+    @subject = subject_name
+    @data = TestResult.achievement_rate_by_subject(subject_name)
+  end
+
   private
 
   def test_result_params

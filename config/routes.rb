@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   resource :user_session, only: [:new, :create, :destroy]
   resources :users, only: %i[new create]
 
-  resources :test_results, except: [:show]
-  
+  resources :test_results, except: [:show] do
+    collection do
+      get :subject_achievement_rate
+    end
+  end
 end
