@@ -42,10 +42,14 @@ class TestResultsController < ApplicationController
   end
 
   def subject_achievement_rate
-    subject_name = params[:subject_name]
-    @subject = subject_name
-    @data = TestResult.achievement_rate_by_subject(subject_name).map .with_index { |(test_name, achievement_rate), index| ["#{test_name} (#{index + 1})", achievement_rate] }
-    @data2 = TestResult.scatter_chart_data_by_subject(subject_name)
+    @subjects = Subject.pluck(:subject_name)
+    @data_by_subject = {}
+    @subjects.each do |subject|
+      @data_by_subject[subject] = {
+        line_chart_data: TestResult.achievement_rate_by_subject(subject).map.with_index { |(test_name, achievement_rate), index| ["#{test_name} (#{index + 1})", achievement_rate] },
+        scatter_chart_data: TestResult.scatter_chart_data_by_subject(subject)
+      }
+    end
   end
 
   private
