@@ -44,7 +44,7 @@ class TestResultsController < ApplicationController
   def subject_achievement_rate
     subject_name = params[:subject_name]
     @subject = subject_name
-    @data = TestResult.achievement_rate_by_subject(subject_name)
+    @data = TestResult.achievement_rate_by_subject(subject_name).map .with_index { |(test_name, achievement_rate), index| ["#{test_name} (#{index + 1})", achievement_rate] }
   end
 
   private

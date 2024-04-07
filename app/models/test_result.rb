@@ -21,7 +21,7 @@ class TestResult < ApplicationRecord
   def self.achievement_rate_by_subject(subject)
     joins(:subject, :test_name)
       .where(subjects: { subject_name: subject })
-      .pluck('test_names.test_name, test_results.achievement_rate')
+      .pluck(:test_name, :achievement_rate)
   end
 
   private
