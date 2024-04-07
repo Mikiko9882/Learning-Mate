@@ -57,3 +57,5 @@ MaxScore.find_or_create_by(max_score: '10')
 
 
 
+
+
