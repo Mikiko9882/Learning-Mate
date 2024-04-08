@@ -1,20 +1,24 @@
 <% content_for(:title, t('.title')) %>
-<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-  <h1><%= t('.title') %></h1>
-  <div class="row">
-    <div class="col-md-12 mb-3">
-      <%= render 'search_form' %>
+<!-- Breadcrumb -->
+<nav class="container mt-lg-4 pt-5" aria-label="breadcrumb"></nav>
+<!-- Page content -->
+<section class="container mt-4 mb-lg-5 pt-lg-2 pb-5">
+  <!-- Page title + Layout switcher + Search form -->
+  <div class="row align-items-end gy-3 mb-4 pb-lg-3 pb-1">
+    <div class="col-lg-5 col-md-4">
+      <h1 class="mb-2 mb-md-0"><%= t '.title' %></h1>
     </div>
+    
   </div>
   <div class="row">
     <div class="col-md-12">
       <table class="table table-striped">
         <thead>
         <tr>
-          <th scope="col"><%= User.human_attribute_name(:id) %></th>
-          <th scope="col"><%= User.human_attribute_name(:grade_and_class) %></th>
           <th scope="col"><%= User.human_attribute_name(:full_name) %></th>
-          <th scope="col"><%= User.human_attribute_name(:introduction) %></th>
+          <th scope="col"><%= User.human_attribute_name(:grade_id) %></th>
+          <th scope="col"><%= User.human_attribute_name(:user_class_id) %></th>
+          <th scope="col"><%= User.human_attribute_name(:nickname) %></th>
           <th scope="col"><%= User.human_attribute_name(:created_at) %></th>
           <th scope="col"></th>
         </tr>
@@ -25,10 +29,4 @@
       </table>
     </div>
   </div>
-  <div class="row">
-    <div class="col-md-12">
-      <!-- ページネーション -->
-      <%= paginate @users %>
-    </div>
-  </div>
-</main>
+</section>
