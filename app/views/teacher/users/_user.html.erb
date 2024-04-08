@@ -1,0 +1,24 @@
+<tr>
+  <td>
+    <%= user.id %>
+  </td>
+  <td>
+    <%= user.grade_and_class %>
+  </td>
+  <td>
+    <%= user.decorate.full_name %>
+  </td>
+  <td>
+    <%= user.introduction %>
+  </td>
+  <td>
+    <%= l user.created_at, format: :long %>
+  </td>
+  <td>
+    <div class="btn-group" role="group">
+      <%= button_to t('defaults.show'), admin_user_path(user), class: 'btn btn-info me-2' %>
+      <%= button_to t('defaults.edit'), edit_admin_user_path(user), class: 'btn btn-success me-2' %>
+      <%= button_to t('defaults.delete'), admin_user_path(user), method: :delete, data: { turbo_confirm: "本当に削除しますか？" }, class: 'btn btn-danger' %>
+    </div>
+  </td>
+</tr>

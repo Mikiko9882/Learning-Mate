@@ -1,0 +1,50 @@
+<% content_for(:test_name, @test_result.test_name) %>
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+  <h1><%= t('.title') %></h1>
+  <%= form_with model: @test_result, url: admin_test_result_path(@test_result), local: true do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+    <div class="row">
+        <div class="col-12 mb-4">
+          <div class="position-relative mb-0">
+            <div class="form-group">
+              <%= f.label :test_name %>
+              <%= f.select :test_name, test_name_options, { include_blank: 'テスト名を選択' }, class: 'form-control' %>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="position-relative mb-4">
+            <div class="form-group">
+              <%= f.label :max_score %>
+              <%= f.number_field :max_score, class: 'form-control' %>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="position-relative mb-4">
+            <div class="form-group">
+              <%= f.label :score %>
+              <%= f.number_field :score, class: 'form-control' %>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="position-relative mb-4">
+            <div class="form-group">
+              <%= f.label :test_date %>
+              <%= f.date_field :test_date, class: 'form-control' %>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="position-relative mb-4">
+            <div class="form-group">
+              <%= f.label :preparation_time_minutes %>
+              <%= f.number_field :preparation_time_minutes, class: 'form-control' %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <%= f.submit class: 'btn btn-primary' %>
+  <% end %>
+</main>

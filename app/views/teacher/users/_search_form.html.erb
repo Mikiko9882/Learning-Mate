@@ -1,0 +1,13 @@
+<%= search_form_for @q, url: admin_users_path do |f| %>
+  <div class="row">
+    <div class="col-auto">
+      <%= f.search_field :first_name_or_last_name_cont, class: 'form-control', placeholder: '氏名を検索' %>
+    </div>
+    <div class="col-auto">
+      <%= f.select :grade_and_class_cont, grade_and_class_options, { include_blank: '学年と組を選択' }, { class: 'form-control mr-2' } %>
+    </div>
+    <div class="col-auto">
+      <%= f.submit class: 'btn btn-primary' %>
+    </div>
+  </div>
+<% end %>

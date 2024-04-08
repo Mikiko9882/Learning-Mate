@@ -81,10 +81,10 @@ ja:
   privacy_policy:
     show:
       title: 'プライバシーポリシー'
-  admin:
+  teacher:
     user_sessions:
       new:
-        title: 'ログイン'
+        title: '先生のログイン'
       create:
         success: 'ログインしました'
         fail: 'ログインに失敗しました'

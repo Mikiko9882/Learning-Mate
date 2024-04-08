@@ -1,0 +1,16 @@
+<%= search_form_for @q, url: admin_test_results_path do |f| %>
+  <div class="row">
+    <div class="col-auto">
+      <%= f.select :test_name_cont, test_name_options, { include_blank: 'テスト名を検索' }, class: 'form-control' %>
+    </div>
+    <div class="col-auto">
+      <%= f.search_field :user_first_name_or_user_last_name_cont, class: 'form-control', placeholder: '氏名を検索' %>
+    </div>
+    <div class="col-auto">
+      <%= f.select :user_grade_and_class_cont, grade_and_class_options, { include_blank: '学年と組を選択' }, { class: 'form-control mr-2' } %>
+    </div>
+    <div class="col-auto">
+      <%= f.submit class: 'btn btn-primary' %>
+    </div>
+  </div>
+<% end %>
