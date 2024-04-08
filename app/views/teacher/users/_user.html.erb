@@ -1,5 +1,8 @@
 <tr>
   <td>
+    <%= user.login_id %>
+  </td>
+  <td>
     <%= user.decorate.full_name %>
   </td>
   <td>
@@ -13,5 +16,12 @@
   </td>
   <td>
     <%= l user.created_at, format: :long %>
+  </td>
+  <td>
+    <div class="btn-group" role="group">
+      <%= link_to t('defaults.show'), teacher_user_path(user), class: 'btn btn-info me-2' %>
+      <%= link_to t('defaults.edit'), edit_teacher_user_path(user), class: 'btn btn-success me-2' %>
+      <%= button_to t('defaults.delete'), teacher_user_path(user), method: :delete, data: { turbo_confirm: "本当に削除しますか？" }, class: 'btn btn-danger' %>
+    </div>
   </td>
 </tr>
