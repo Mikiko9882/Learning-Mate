@@ -28,5 +28,12 @@ class User < ApplicationRecord
   def average_achievement_rate
     test_results.average(:achievement_rate)
   end
+
+  def self.ransackable_attributes(auth_object = nil)
+    ["created_at", "crypted_password", "first_name", "grade_id", "id", "id_value", "last_name", "login_id", "nickname", "role", "salt", "updated_at", "user_class_id"]
+  end
   
+  def self.ransackable_associations(auth_object = nil)
+    ["grade", "test_results", "user_class"]
+  end
 end
