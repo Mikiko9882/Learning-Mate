@@ -117,8 +117,12 @@ GEM
       request_store (>= 1.0)
       ruby2_keywords
     drb (2.2.1)
+    enum_help (0.0.19)
+      activesupport (>= 3.0.0)
     error_highlight (0.6.0)
     erubi (1.12.0)
+    faker (3.3.1)
+      i18n (>= 1.8.11, < 2)
     faraday (2.9.0)
       faraday-net_http (>= 2.0, < 3.2)
     faraday-net_http (3.1.0)
@@ -339,7 +343,9 @@ DEPENDENCIES
   cssbundling-rails
   debug
   draper
+  enum_help
   error_highlight (>= 0.4.0)
+  faker
   importmap-rails
   jbuilder
   kaminari

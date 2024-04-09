@@ -51,6 +51,24 @@ MaxScore.find_or_create_by(max_score: '50')
 MaxScore.find_or_create_by(max_score: '20')
 MaxScore.find_or_create_by(max_score: '10')
 
+#ダミーuser
+grades = Grade.all
+user_classes = UserClass.all
+
+20.times do
+  User.create!(
+    login_id: Faker::Lorem.characters(number: 10, min_alpha: 4, min_numeric: 1),
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    nickname: Faker::Internet.user_name,
+    grade: grades.sample,
+    user_class: user_classes.sample,
+    password: '12345',
+    password_confirmation: '12345',
+  )
+end
+
+
 
 
 

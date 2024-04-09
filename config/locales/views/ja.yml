@@ -63,12 +63,9 @@ ja:
       percentage_sign: "%"
     new:
       title: 'テスト結果入力'
-    show:
-      title: 'テスト詳細'
-      back_to_index: 'テスト一覧画面へ'
-      score: "得点"
-      max_score: "満点"
-      achievement_rate: "達成率"
+    subject_achievement_rate:
+      title: 'グラフで見る'
+      
     edit:
       title: '点数編集'
     my_results:
@@ -84,10 +81,10 @@ ja:
   privacy_policy:
     show:
       title: 'プライバシーポリシー'
-  admin:
+  teacher:
     user_sessions:
       new:
-        title: 'ログイン'
+        title: '先生のログイン'
       create:
         success: 'ログインしました'
         fail: 'ログインに失敗しました'

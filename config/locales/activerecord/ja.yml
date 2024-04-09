@@ -7,17 +7,13 @@ ja:
       user_class: 'クラス' 
     attributes:
       user:
-        email: 'メールアドレス'
         password: 'パスワード'
         password_confirmation: 'パスワード確認'
         login_id: 'ログインID'
-        login_identifier: 'ログインIDまたはEメール'
         last_name: '姓'
         first_name: '名'
         nickname: 'ニックネーム'
-        grade_and_class: '学年・クラス'
         full_name: '氏名'
-        introduction: 'comment'
         avatar: 'アバター'
         role: '権限'
         created_at: '作成日時'
@@ -39,7 +35,6 @@ ja:
         test_name_id: "テスト名"
         max_score_id: "満点"
         subject_id: "教科"
-        
       grade: 
         grade_id: '学年'
       user_class:
@@ -47,5 +42,6 @@ ja:
     enums:
       user:
         role:
-          general: '一般'
+          student: '生徒'
+          teacher: '先生'
           admin: '管理者'
