@@ -50,12 +50,13 @@ MaxScore.find_or_create_by(max_score: '100')
 MaxScore.find_or_create_by(max_score: '50')
 MaxScore.find_or_create_by(max_score: '20')
 MaxScore.find_or_create_by(max_score: '10')
+MaxScore.find_or_create_by(max_score: '5')
 
 #ダミーuser
 grades = Grade.all
 user_classes = UserClass.all
 
-20.times do
+10.times do
   User.create!(
     login_id: Faker::Lorem.characters(number: 10, min_alpha: 4, min_numeric: 1),
     first_name: Faker::Name.first_name,
@@ -68,10 +69,18 @@ user_classes = UserClass.all
   )
 end
 
+test_names = TestName.all
+max_score_value = 100
+subjects = Subject.all
 
-
-
-
-
-
-
+max_score = MaxScore.find_or_create_by(max_score: max_score_value)
+20.times do |index|
+  TestResult.create!(
+    user: User.offset(rand(User.count)).first,
+    test_name: test_names.sample,
+    max_score: max_score,
+    score: rand(max_score_value + 1),
+    subject: subjects.sample,
+    preparation_time_minutes: rand(300),
+  )
+end
