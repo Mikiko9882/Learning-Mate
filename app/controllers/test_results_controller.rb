@@ -1,4 +1,6 @@
 class TestResultsController < ApplicationController
+  before_action :find_test_result, only: [:edit, :update, :destroy]
+
   def index
     @q = current_user.test_results.ransack(params[:q])
     @test_results = @q.result(distinct: true).includes(:user).order(created_at: :desc).page(params[:page])
@@ -53,6 +55,10 @@ class TestResultsController < ApplicationController
   end
 
   private
+
+  def find_test_result
+    @test_result = current_user.test_results.find(params[:id])
+  end
 
   def test_result_params
     params.require(:test_result).permit(:test_name_id, :score, :max_score_id, :preparation_time_minutes, :subject_id)

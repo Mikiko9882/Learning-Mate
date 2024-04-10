@@ -104,6 +104,8 @@ ja:
         title: 'テスト結果編集'
       show:
         title: 'テスト結果詳細'
+      subject_achievement_rate:
+        title: 'グラフで見る'  
   rooms:
     index:
       title: 'メッセージ一覧'

@@ -24,6 +24,17 @@ class Teacher::TestResultsController < Teacher::BaseController
     redirect_to teacher_test_results_path, success: t('defaults.message.deleted', item: TestResult.model_name.human)
   end
 
+  def subject_achievement_rate
+    @subjects = Subject.pluck(:subject_name)
+    @data_by_subject = {}
+    @subjects.each do |subject|
+      @data_by_subject[subject] = {
+        line_chart_data: TestResult.achievement_rate_by_subject(subject).map.with_index { |(test_name, achievement_rate), index| ["#{test_name} (#{index + 1})", achievement_rate] },
+        scatter_chart_data: TestResult.scatter_chart_data_by_subject(subject)
+      }
+    end
+  end
+
   private
 
   def find_test_result

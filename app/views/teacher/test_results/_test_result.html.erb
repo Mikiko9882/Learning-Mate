@@ -15,7 +15,7 @@
     <%= link_to TestName.find(test_result.test_name_id).test_name, teacher_test_result_path(test_result) %>
   </td>
   <td>
-    <%= Subject.find(test_result.subject_id).subject_name %>
+    <%= link_to Subject.find(test_result.subject_id).subject_name, subject_achievement_rate_teacher_test_results_path %>
   </td>
   <td>
     <%= l test_result.created_at, format: :long %>
