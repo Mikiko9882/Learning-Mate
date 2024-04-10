@@ -1,24 +1,30 @@
 <tr>
   <td>
-    <%= test_result.id %>
+    <%= test_result.user.login_id %>
   </td>
   <td>
-    <%= link_to test_result.test_name, admin_test_result_path(test_result) %>
+    <%= link_to test_result.user.decorate.full_name, subject_achievement_rate_teacher_test_results_path %>
   </td>
   <td>
-    <%= test_result.user.grade_and_class %>
+    <%= test_result.user.grade.name %>
   </td>
   <td>
-    <%= test_result.user.decorate.full_name %>
+    <%= test_result.user.user_class.name %>
+  </td>
+  <td>
+    <%= link_to TestName.find(test_result.test_name_id).test_name, teacher_test_result_path(test_result) %>
+  </td>
+  <td>
+    <%= Subject.find(test_result.subject_id).subject_name %>
   </td>
   <td>
     <%= l test_result.created_at, format: :long %>
   </td>
   <td>
     <div class="btn-group" role="group">
-      <%= button_to t('defaults.show'), admin_test_result_path(test_result), class: 'btn btn-info me-2' %>
-      <%= button_to t('defaults.edit'), edit_admin_test_result_path(test_result), class: 'btn btn-success me-2' %>
-      <%= button_to t('defaults.delete'), admin_test_result_path(test_result), method: :delete, data: { turbo_confirm: "本当に削除しますか？" }, class: 'btn btn-danger' %>
+      <%= link_to t('defaults.show'), teacher_test_result_path(test_result), class: 'btn btn-info me-2' %>
+      <%= link_to t('defaults.edit'), edit_teacher_test_result_path(test_result), class: 'btn btn-success me-2' %>
+      <%= button_to t('defaults.delete'), teacher_test_result_path(test_result), method: :delete, data: { turbo_confirm: "本当に削除しますか？" }, class: 'btn btn-danger' %>
     </div>  
   </td>
 </tr>
