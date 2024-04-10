@@ -10,18 +10,23 @@
     </div>
     <div class="col-lg-7 col-md-8">
       <%= search_form_for @q, url: teacher_test_results_path do |f| %>
-        <div class="col-lg-5 col-sm-6 mb-2">
-          <div class="input-group">
+        <div class="row align-items-end">
+          <div class="col-lg-2 col-md-6 col-sm-12 mb-2">
+            <%= f.search_field :user_first_name_or_user_last_name_cont, class: 'form-control', placeholder: '氏名を検索' %>
+          </div>
+          <div class="col-lg-2 col-md-3 col-sm-6 mb-2">
+            <%= f.select :user_grade_id_eq, Grade.all.map{|g| [g.name, g.id]}, { include_blank: '学年を検索' }, { class: 'form-select' } %>
+          </div>
+          <div class="col-lg-2 col-md-3 col-sm-6 mb-2">
+            <%= f.select :user_user_class_id_eq, UserClass.all.map{|c| [c.name, c.id]}, { include_blank: 'クラスを検索' }, { class: 'form-select' } %>
+          </div>
+          <div class="col-lg-2 col-md-4 col-sm-6 mb-2">
             <%= f.select :test_name_id_eq, TestName.all.map{|tn| [tn.test_name, tn.id]}, { include_blank: 'テスト名で検索' }, { class: 'form-select' } %>
           </div>
-        </div>
-        <div class="col-lg-5 col-sm-6 mb-2">
-          <div class="input-group">
+          <div class="col-lg-2 col-md-4 col-sm-6 mb-2">
             <%= f.select :subject_id_eq, Subject.all.map{|s| [s.subject_name, s.id]}, { include_blank: '教科名で検索' }, { class: 'form-select' } %>
           </div>
-        </div>
-        <div class="col-lg-2 col-sm-12">
-          <div class="input-group">
+          <div class="col-lg-2 col-md-4 col-sm-6 mb-2">
             <%= f.submit "検索", class: 'btn btn-primary' %>
           </div>
         </div>
@@ -38,10 +43,12 @@
       <table class="table table-striped">
         <thead>
         <tr>
-          <th scope="col"><%= TestResult.human_attribute_name(:id) %></th>
-          <th scope="col"><%= TestResult.human_attribute_name(:test_name) %></th>
-          <th scope="col"><%= TestResult.human_attribute_name(:grade_and_class) %></th>
-          <th scope="col"><%= TestResult.human_attribute_name(:user) %></th>
+          <th scope="col"><%= User.human_attribute_name(:login_id) %></th>
+          <th scope="col"><%= User.human_attribute_name(:full_name) %></th>
+          <th scope="col"><%= User.human_attribute_name(:grade_id) %></th>
+          <th scope="col"><%= User.human_attribute_name(:user_class_id) %></th>
+          <th scope="col"><%= TestResult.human_attribute_name(:test_name_id) %></th>
+          <th scope="col"><%= TestResult.human_attribute_name(:subject_id) %></th>
           <th scope="col"><%= TestResult.human_attribute_name(:created_at) %></th>
           <th scope="col"></th>
         </tr>
