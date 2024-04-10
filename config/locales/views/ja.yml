@@ -90,16 +90,13 @@ ja:
         fail: 'ログインに失敗しました'
       destroy:
         success: 'ログアウトしました'
-    dashboards:
-      index:
-        title: 'ダッシュボード'
     users:
       index:
-        title: 'ユーザー一覧'
+        title: '生徒一覧'
       edit:
-        title: 'ユーザー編集'
+        title: '生徒編集'
       show:
-        title: 'ユーザー詳細'
+        title: '生徒詳細'
     test_results:
       index:
         title: 'テスト結果一覧'

@@ -6,19 +6,6 @@ class Teacher::UsersController < Teacher::BaseController
     @users = @q.result(distinct: true).order(created_at: :asc).page(params[:page])
   end
 
-  def new
-    @user = User.new
-  end
-    
-  def create
-    @user = User.new(user_params)
-    if @user.save
-      redirect_to teacher_users_path, success: t('.success')
-    else
-      flash.now[:danger] = t('.fail')
-      render 'new', status: :unprocessable_entity
-    end
-  end
 
   def edit; end
 

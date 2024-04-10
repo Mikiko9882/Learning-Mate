@@ -13,7 +13,9 @@
       </div>      
     </div>
 
-
+    <div class="form-check from-switch mode-switch pe-lg-1 ms-auto me-0" data-bs-toggle="mode">
+      <%= link_to t('teacher.test_results.index.title'), teacher_test_results_path, class: 'btn btn-primary btn-sm fs-sm rounded d-none d-lg-inline-flex' %>
+    </div>
     <div class="form-check from-switch mode-switch pe-lg-1 ms-auto me-0" data-bs-toggle="mode">
       <%= link_to t('teacher.users.index.title'), teacher_users_path, class: 'btn btn-primary btn-sm fs-sm rounded d-none d-lg-inline-flex' %>
     </div>
