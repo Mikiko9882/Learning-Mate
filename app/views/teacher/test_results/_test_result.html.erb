@@ -3,7 +3,7 @@
     <%= test_result.user.login_id %>
   </td>
   <td>
-    <%= test_result.user.decorate.full_name %>
+    <%= link_to test_result.user.decorate.full_name, subject_achievement_rate_teacher_test_results_path %>
   </td>
   <td>
     <%= test_result.user.grade.name %>
@@ -15,7 +15,7 @@
     <%= link_to TestName.find(test_result.test_name_id).test_name, teacher_test_result_path(test_result) %>
   </td>
   <td>
-    <%= link_to Subject.find(test_result.subject_id).subject_name, subject_achievement_rate_teacher_test_results_path %>
+    <%= Subject.find(test_result.subject_id).subject_name %>
   </td>
   <td>
     <%= l test_result.created_at, format: :long %>
