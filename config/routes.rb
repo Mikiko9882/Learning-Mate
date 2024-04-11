@@ -23,7 +23,12 @@ Rails.application.routes.draw do
     post 'login', to: 'user_sessions#create'
     delete 'logout', to: 'user_sessions#destroy'
     resources :users, only: %i[index edit update show destroy]
-    resources :groups, only: [:new, :index, :show, :create, :edit, :update]
+    resources :groups, only: [:new, :index, :show, :create, :edit, :update] do
+      member do
+        get 'add_user'
+        post 'create_group_user'
+      end
+    end
     resources :test_results, only: %i[index edit update show destroy] do
       collection do
         get :subject_achievement_rate

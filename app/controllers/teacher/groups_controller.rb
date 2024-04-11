@@ -37,6 +37,18 @@ class Teacher::GroupsController < Teacher::BaseController
     end
   end
 
+  def add_user
+    @group = Group.find(params[:id])
+    @users = User.all
+  end
+
+  def create_group_user
+    @group = Group.find(params[:id])
+    user_ids = params[:user_ids]
+    @group.users << User.where(id: user_ids)
+    redirect_to teacher_group_path(@group), success: 'Users added to group successfully.'
+  end
+
   private
 
   def group_params

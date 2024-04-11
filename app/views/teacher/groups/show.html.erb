@@ -17,6 +17,9 @@
                 <%= link_to 'Edit', edit_teacher_group_path(@group), class: "btn btn-sm btn-success" %>
               <% end %>
             </td>
+            <td>
+              <%= link_to 'Add User', add_user_teacher_group_path(@group), class: "btn btn-sm btn-primary" %>
+            </td>
           </tr>
         </tbody>
       </table>
