@@ -48,8 +48,8 @@ class TestResultsController < ApplicationController
     @data_by_subject = {}
     @subjects.each do |subject|
       @data_by_subject[subject] = {
-        line_chart_data: TestResult.achievement_rate_by_subject(subject).map.with_index { |(test_name, achievement_rate), index| ["#{test_name} (#{index + 1})", achievement_rate] },
-        scatter_chart_data: TestResult.scatter_chart_data_by_subject(subject)
+        line_chart_data: current_user.test_results.achievement_rate_by_subject(subject).map.with_index { |(test_name, achievement_rate), index| ["#{test_name} (#{index + 1})", achievement_rate] },
+        scatter_chart_data: current_user.test_results.scatter_chart_data_by_subject(subject)
       }
     end
   end
