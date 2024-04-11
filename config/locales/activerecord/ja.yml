@@ -37,6 +37,8 @@ ja:
         grade_id: '学年'
       user_class:
         user_class_id: 'クラス' 
+      group:
+        group_name: 'グループ名'
     enums:
       user:
         role:

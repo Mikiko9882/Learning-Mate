@@ -5,6 +5,8 @@ class User < ApplicationRecord
   belongs_to :user_class
   has_many :test_results, dependent: :destroy
 
+  has_many :group_users, dependent: :destroy
+
   validates :login_id, uniqueness: true, presence: true
   validate :login_id_format
 

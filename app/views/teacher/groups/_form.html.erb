@@ -1,0 +1,11 @@
+<%= form_with model: group, url: teacher_groups_path, local: true do |f| %>
+  <div class="position-relative mb-4">
+    <div class="form-group">
+      <%= f.label :group_name %>
+      <%= f.text_field :group_name, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="actions">
+    <%= f.submit class: 'btn btn-primary shadow-primary btn-lg w-100' %>
+  </div>
+<% end %>
