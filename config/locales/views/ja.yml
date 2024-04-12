@@ -117,7 +117,9 @@ ja:
       show:
         title: 'グループ詳細'
       edit:
-        title: 'グループ名編集'        
+        title: 'グループ名編集'
+      add_user:
+        title: 'グループに追加する'        
   rooms:
     index:
       title: 'メッセージ一覧'
