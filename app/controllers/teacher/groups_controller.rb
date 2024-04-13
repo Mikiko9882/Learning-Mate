@@ -31,9 +31,9 @@ class Teacher::GroupsController < Teacher::BaseController
 
   def update
     if @group.update(group_params)
-      redirect_to teacher_groups_path, success: t('defaults.message.updated', item: User.model_name.human)
+      redirect_to teacher_groups_path, success: t('defaults.message.updated', item: Group.model_name.human)
     else
-      flash.now['danger'] = t('defaults.message.not_updated', item: User.model_name.human)
+      flash.now['danger'] = t('defaults.message.not_updated', item: Group.model_name.human)
       render "edit", status: :unprocessable_entity
     end
   end
@@ -52,7 +52,7 @@ class Teacher::GroupsController < Teacher::BaseController
 
   def destroy
     @group.destroy!
-    redirect_to teacher_groups_path, success: 'グループを削除しました。'
+    redirect_to teacher_groups_path, success: t('defaults.message.deleted', item: Group.model_name.human)
   end
 
   private

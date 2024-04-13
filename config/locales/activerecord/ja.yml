@@ -4,7 +4,8 @@ ja:
       user: 'ユーザー'
       test_result: 'テスト結果'
       grade: '学年'
-      user_class: 'クラス' 
+      user_class: 'クラス'
+      group: 'グループ' 
     attributes:
       user:
         password: 'パスワード'
