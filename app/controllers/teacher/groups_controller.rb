@@ -1,5 +1,5 @@
 class Teacher::GroupsController < Teacher::BaseController
-  before_action :ensure_correct_user, only: [:edit, :update]
+  before_action :ensure_correct_user, only: [:edit, :update, :destroy]
 
   def index
     @groups = Group.all
@@ -48,6 +48,11 @@ class Teacher::GroupsController < Teacher::BaseController
     user_ids = params[:user_ids]
     @group.users << User.where(id: user_ids)
     redirect_to teacher_group_path(@group), success: 'Users added to group successfully.'
+  end
+
+  def destroy
+    @group.destroy!
+    redirect_to teacher_groups_path, success: 'グループを削除しました。'
   end
 
   private
