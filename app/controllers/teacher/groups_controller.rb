@@ -40,7 +40,8 @@ class Teacher::GroupsController < Teacher::BaseController
 
   def add_user
     @group = Group.find(params[:id])
-    @users = User.all
+    @q = User.ransack(params[:q])
+    @users = @q.result(distinct: true).order(created_at: :asc)
   end
 
   def create_group_user

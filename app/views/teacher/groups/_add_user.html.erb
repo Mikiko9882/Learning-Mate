@@ -1,0 +1,14 @@
+<% @users.each do |user| %>
+  <tr>
+    <td><%= user.login_id %></td>
+    <td><%= user.decorate.full_name %></td>
+    <td><%= user.grade.name %></td>
+    <td><%= user.user_class.name %></td>
+    <td>
+      <%= form_with url: create_group_user_teacher_group_path(group_id: @group.id), method: :post do |f| %>
+        <%= hidden_field_tag 'user_id', user.id %>
+        <%= submit_tag "Add to Group", class: "btn btn-primary" %>
+      <% end %>
+    </td>
+  </tr>
+<% end %>
