@@ -38,19 +38,6 @@ class Teacher::GroupsController < Teacher::BaseController
     end
   end
 
-  def add_user
-    @group = Group.find(params[:id])
-    @q = User.ransack(params[:q])
-    @users = @q.result(distinct: true).order(created_at: :asc)
-  end
-
-  def create_group_user
-    @group = Group.find(params[:id])
-    user_ids = params[:user_ids]
-    @group.users << User.where(id: user_ids)
-    redirect_to teacher_group_path(@group), success: 'Users added to group successfully.'
-  end
-
   def destroy
     @group.destroy!
     redirect_to teacher_groups_path, success: t('defaults.message.deleted', item: Group.model_name.human)
