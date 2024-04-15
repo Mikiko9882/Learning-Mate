@@ -24,10 +24,7 @@ Rails.application.routes.draw do
     delete 'logout', to: 'user_sessions#destroy'
     resources :users, only: %i[index edit update show destroy]
     resources :groups do
-      member do
-        get 'add_user'
-        post 'create_group_user'
-      end
+      resources :group_users, only: [:new, :create]
     end
     resources :test_results, only: %i[index edit update show destroy] do
       collection do

@@ -1,0 +1,22 @@
+<% content_for(:title, t('.title')) %>
+<!-- Breadcrumb -->
+<nav class="container mt-lg-4 pt-5" aria-label="breadcrumb"></nav>
+<!-- Page content -->
+<section class="container mt-4 mb-lg-5 pt-lg-2 pb-5">
+  <!-- Page title + Layout switcher + Search form -->
+  <div class="row align-items-end gy-3 mb-4 pb-lg-3 pb-1">
+    <div class="col-lg-5 col-md-4">
+      <h1 class="mb-2 mb-md-0"><%= t '.title' %></h1>
+    </div>
+    <%= form_with(model: [@group, GroupUser.new], url: teacher_group_group_users_path(@group), method: :post) do |f| %>
+      <div class="field">
+        <%= f.label :user_id %>
+        <%= f.select :user_id, options_for_select(@users.map{ |user| [user.nickname, user.id] }) %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Add User to Group" %>
+      </div>
+    <% end %>
+  </div>
+</section>

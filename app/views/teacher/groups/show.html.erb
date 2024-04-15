@@ -28,7 +28,7 @@
             <td><%= @group.users.count %></td>
             <td>
               <% if @group.owner_id == current_user.id %>
-                <%= link_to 'Add User', add_user_teacher_group_path(@group), class: "btn btn-sm btn-primary" %>
+                <%= link_to 'Add User', new_teacher_group_group_user_path(@group), class: "btn btn-sm btn-primary" %>
               <% end %>
             </td>
           </tr>
