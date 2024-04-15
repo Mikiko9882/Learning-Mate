@@ -9,12 +9,34 @@
       <h1 class="mb-2 mb-md-0"><%= t '.title' %></h1>
     </div>
     <%= form_with(model: [@group, GroupUser.new], url: teacher_group_group_users_path(@group), method: :post) do |f| %>
-      <% @users.each do |user| %>
-        <div class="field">
-          <%= check_box_tag "group_user[user_ids][]", user.id %>
-          <%= label_tag "group_user[user_ids][]", user.decorate.full_name %>
+      <div class="row">
+        <div class="col-md-12">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"><%= User.human_attribute_name(:login_id) %></th>
+                <th scope="col"><%= User.human_attribute_name(:full_name) %></th>
+                <th scope="col"><%= User.human_attribute_name(:grade_id) %></th>
+                <th scope="col"><%= User.human_attribute_name(:user_class_id) %></th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @users.each do |user| %>
+                <tr>
+                  <td><%= user.login_id %></td>
+                  <td><%= user.decorate.full_name %></td>
+                  <td><%= user.grade.name %></td>
+                  <td><%= user.user_class.name %></td>
+                  <td>
+                    <%= check_box_tag "group_user[user_ids][]", user.id, false, id: "user_#{user.id}" %>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
         </div>
-      <% end %>
+      </div>
 
       <div class="actions">
         <%= f.submit "Add User to Group" %>

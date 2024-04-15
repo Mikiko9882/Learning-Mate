@@ -7,7 +7,7 @@ class Teacher::GroupUsersController < Teacher::BaseController
   end
 
   def create
-    user_ids = group_user_params.delete(:user_ids) # user_idsを取り出す
+    user_ids = group_user_params.delete(:user_ids)
     user_ids.each do |user_id|
       @group.group_users.create(user_id: user_id)
     end
