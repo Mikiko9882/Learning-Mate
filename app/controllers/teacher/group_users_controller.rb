@@ -3,7 +3,8 @@ class Teacher::GroupUsersController < Teacher::BaseController
 
   def new
     @group_user = @group.group_users.new
-    @users = User.all
+    @q = User.ransack(params[:q])
+    @users = @q.result(distinct: true).order(created_at: :asc)
   end
 
   def create
