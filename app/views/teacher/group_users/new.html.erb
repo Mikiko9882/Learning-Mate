@@ -9,10 +9,12 @@
       <h1 class="mb-2 mb-md-0"><%= t '.title' %></h1>
     </div>
     <%= form_with(model: [@group, GroupUser.new], url: teacher_group_group_users_path(@group), method: :post) do |f| %>
-      <div class="field">
-        <%= f.label :user_id %>
-        <%= f.select :user_id, options_for_select(@users.map{ |user| [user.nickname, user.id] }) %>
-      </div>
+      <% @users.each do |user| %>
+        <div class="field">
+          <%= check_box_tag "group_user[user_ids][]", user.id %>
+          <%= label_tag "group_user[user_ids][]", user.decorate.full_name %>
+        </div>
+      <% end %>
 
       <div class="actions">
         <%= f.submit "Add User to Group" %>

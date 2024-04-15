@@ -7,12 +7,12 @@ class Teacher::GroupUsersController < Teacher::BaseController
   end
 
   def create
-    @group_user = @group.group_users.new(group_user_params)
-    if @group_user.save
-      redirect_to teacher_group_path(@group), success: "User added to group successfully"
-    else
-      redirect_to teacher_group_path(@group), danger: "Failed to add user to group"
+    user_ids = group_user_params.delete(:user_ids) # user_idsを取り出す
+    user_ids.each do |user_id|
+      @group.group_users.create(user_id: user_id)
     end
+
+    redirect_to teacher_group_path(@group), success: "Users added to group successfully"
   end
 
   private
@@ -22,6 +22,6 @@ class Teacher::GroupUsersController < Teacher::BaseController
   end
 
   def group_user_params
-    params.require(:group_user).permit(:user_id)
+    params.require(:group_user).permit(user_ids: [])
   end
 end
