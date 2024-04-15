@@ -3,7 +3,7 @@
     <%= test_result.user.login_id %>
   </td>
   <td>
-    <%= link_to test_result.user.decorate.full_name, subject_achievement_rate_teacher_test_results_path %>
+    <%= link_to test_result.user.decorate.full_name, subject_achievement_rate_teacher_test_results_path(id: test_result.user.id) %>
   </td>
   <td>
     <%= test_result.user.grade.name %>

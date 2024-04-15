@@ -1,4 +1,5 @@
 class Teacher::BaseController < ApplicationController
+  add_flash_types :success, :info, :warning, :danger
   before_action :check_teacher
   layout 'teacher/layouts/application'
 

@@ -105,7 +105,22 @@ ja:
       show:
         title: 'テスト結果詳細'
       subject_achievement_rate:
-        title: 'グラフで見る'  
+        title: 'グラフで見る'
+    groups:
+      new:
+        title: 'グループを作成'
+      create:
+        success: 'グループを作成しました'
+        fail: 'グループ作成に失敗しました'
+      index:
+        title: 'グループ一覧'
+      show:
+        title: 'グループ詳細'
+      edit:
+        title: 'グループ名編集'
+    group_users:
+      new:
+        title: 'グループに追加する'        
   rooms:
     index:
       title: 'メッセージ一覧'

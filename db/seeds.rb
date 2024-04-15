@@ -56,7 +56,7 @@ MaxScore.find_or_create_by(max_score: '5')
 grades = Grade.all
 user_classes = UserClass.all
 
-10.times do
+5.times do
   User.create!(
     login_id: Faker::Lorem.characters(number: 10, min_alpha: 4, min_numeric: 1),
     first_name: Faker::Name.first_name,

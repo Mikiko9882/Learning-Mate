@@ -1,0 +1,17 @@
+<% content_for(:title, t('.title')) %>
+<div class="container d-flex flex-wrap justify-content-center justify-content-center pt-5">
+  <div class="w-100 align-self-end pt-1 pt-md-4 pb-4" style="max-width: 526px;">
+    <h1 class="text-center text-xl-start"><%= t '.title' %></h1>
+    <%= form_with model: @group, url: teacher_group_path(@group), local: true do |f| %>
+      <div class="position-relative mb-4">
+        <div class="form-group">
+          <%= f.label :group_name %>
+          <%= f.text_field :group_name, class: 'form-control' %>
+        </div>
+      </div>
+      <div class="actions">
+        <%= f.submit class: 'btn btn-primary shadow-primary btn-lg w-100' %>
+      </div>
+    <% end %>
+  </div>
+</div>

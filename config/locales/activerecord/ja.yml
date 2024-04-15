@@ -4,7 +4,8 @@ ja:
       user: 'ユーザー'
       test_result: 'テスト結果'
       grade: '学年'
-      user_class: 'クラス' 
+      user_class: 'クラス'
+      group: 'グループ' 
     attributes:
       user:
         password: 'パスワード'
@@ -37,6 +38,8 @@ ja:
         grade_id: '学年'
       user_class:
         user_class_id: 'クラス' 
+      group:
+        group_name: 'グループ名'
     enums:
       user:
         role:
