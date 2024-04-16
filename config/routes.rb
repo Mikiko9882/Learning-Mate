@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root 'tops#index'
 
+  get 'terms_of_service', to: 'terms_of_service#show'
+  get 'privacy_policy', to: 'privacy_policy#show'
+
   resource :user_session, only: [:new, :create, :destroy]
   resources :users, only: %i[new create]
 
